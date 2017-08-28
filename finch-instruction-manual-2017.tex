@@ -25,11 +25,11 @@
 \rfoot{\thepage}
 \lfoot{Last Edited: \today}
 
-\setlist[description]{labelwidth=7.75em,leftmargin=!,labelindent=2em}
+\setlist[description]{style=standard,labelwidth=12em,leftmargin=!,labelindent=1em}
 
 \newenvironment{timetable}
 {
-	\setlist[description]{leftmargin=!,labelwidth=7.75em,labelindent=0em,itemindent=2em,listparindent=2em,font=\textbf}
+	\setlist[description]{style=multiline,leftmargin=!,labelwidth=7.75em,font=\textbf,labelindent=1em}
 	\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\textbf{[}~##1~\textbf{]}}
 	\vspace{1.5em}
 	\begin{description}
@@ -118,7 +118,7 @@
 		\todo{Clean up list formatting}
 		
 		\begin{description}
-			\item[Classroom Projection System] Needed to present daily slides and guided lessons.
+			\item[Classroom Projector] Needed to present daily slides and guided lessons.
 			
 			\item[Finch Robot Kits] 1 per group. One or two extra kits should be available as backups. Kits include a Finch robot and a relatively long USB A-B (2.0) cable.
 			
@@ -140,11 +140,10 @@
 		% Please add the following required packages to your document preamble:
 		% \usepackage{graphicx}
 		\begin{table}[ht!]
-			\tiny
+			\footnotesize
 			\centering
 			% \caption{Class Schedule}
 			\label{table:class-schedule}
-			\resizebox{\textwidth}{!}{
 				\begin{tabular}{|c|c|c|c|c|c|}
 					\hline
 					\textbf{Time} & \textbf{\begin{tabular}[c]{@{}c@{}}Day 1\\ (Monday)\end{tabular}}                        & \textbf{\begin{tabular}[c]{@{}c@{}}Day 2\\ (Tuesday)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Day 3\\ (Wednesday)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Day 4\\ (Thursday)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Day 5\\ (Friday)\end{tabular}} \\ \hline
@@ -162,12 +161,13 @@
 					&                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\
 					12:00         &                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\ \hline
 				\end{tabular}%
-			}
 		\end{table}
 
-	\section{Presentation Slides}
-	
-		Daily instruction and announcements are 
+	\section{Class Format}
+		
+		The overall teaching format of this course is geared toward guided self-study and exploration. \todo{}
+		
+		Presentation slides are used for daily instructions and announcements.
 
 	\newpage
 	
@@ -192,7 +192,7 @@
 			
 			\item Connect instructor's laptop to room's projection system, queue up the day's presentation slides.
 		\end{itemize}
-	
+		\vspace{1em}
 		Any additional prep directions specific to a given day are noted in the schedule below.
 	
 	\newpage
@@ -212,7 +212,9 @@
 			
 			\item[10:30 -- 10:45] \textbf{Bathroom / Snack Break}
 			
-			\item[10:45 -- 11:15] \textbf{Guided Intro to Scratch \& Finch} -- \todo{add grouping students up} see \todo{reference second slide set}
+			\item[10:45 -- 11:15] \textbf{Guided Intro to Scratch \& Finch} -- It's time to start working with the Finch! Have the students partner up into groups of two (or three if necessary) at each laptop. This would be a good time to remind students about the rules for using the computers in class -- 
+			
+			 \todo{add grouping students up} see \todo{reference second slide set}
 			
 			\item[11:15 -- 11:50] \textbf{Exploring Scratch \& Finch Basics} -- student groups continue to work \todo{finish this thought}
 			
