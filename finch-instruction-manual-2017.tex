@@ -1,0 +1,330 @@
+\documentclass[a4paper]{article}
+
+\usepackage{geometry}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{todonotes}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage[titletoc,title]{appendix}
+
+\geometry{a4paper,left=1.25in,right=1.25in,top=1.5in,bottom=1.25in}
+
+\pagestyle{fancy}
+\lhead{Finch Programming Teaching Manual}
+\rhead{CMU Gelfand Outreach}
+\cfoot{}
+\rfoot{\thepage}
+\lfoot{Last Edited: \today}
+
+\setlist[description]{labelwidth=7.75em,leftmargin=!,labelindent=2em}
+
+\newenvironment{timetable}
+{
+	\setlist[description]{leftmargin=!,labelwidth=7.75em,labelindent=0em,itemindent=2em,listparindent=2em,font=\textbf}
+	\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\textbf{[}~##1~\textbf{]}}
+	\vspace{1.5em}
+	\begin{description}
+}
+{
+	\end{description}
+}
+
+
+
+\title{
+	\textbf{Finch Programming 2017}\\
+	\onehalfspacing\Large{Instruction Manual}
+	\vspace{0.5in}
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{gelfand-logo}
+	\end{figure}
+	\vspace{3in}
+}
+
+\author{\textbf{Alexander Volkov Jr.}}
+\date{Published Summer 2017}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+	
+	\maketitle
+	\thispagestyle{empty}
+	\vfill
+	\begin{center}
+		\small
+		Last Edited: \today
+	\end{center}
+	
+	\newpage
+	
+	\tableofcontents
+	
+	\newpage
+	
+	\section{Course Overview}
+	
+		This section provides a brief description of the \emph{Finch Programming} course, its objectives and keywords, and concludes with a syllabus schedule.
+	
+	\subsection{Summary for Brochure}
+		
+		Learn the fundamentals of programming through hands on robotics experiments. Students will use the visual programming language \emph{Scratch} to command and interact with a \emph{Finch} mobile robot. Working in pairs, students will explore the key concepts of program flow control, sensing, human-robot interaction, and autonomy. 
+	
+	\subsection{Objectives}
+	
+		The primary course objectives are as follows:
+		
+		\begin{enumerate}[label=(\roman*)]
+			\item Provide an overview of the study of \emph{robotics} -- what it is, where it is used, what the current state of the art is.
+			\item Introduce students to fundamental programming concepts with Scratch\footnotemark[1] and the Finch platform\footnotemark[2].
+			\item Assist students in exploring key robotics concepts of actuation, sensing, human-robot interaction, and autonomy.
+			\item Enable the students to develop their own creative demonstration with the Finch.
+		\end{enumerate}
+	
+	\subsection{Keywords}
+	
+		\emph{Robotics, visual programming, computer science, STEM, Finch robot, Scratch software, \nobreakdash{autonomy}.}
+		
+	\subsection{Target Audience and Class Size}
+	
+		The target audience of this course is rising 4\textsuperscript{th} and 5\textsuperscript{th} grade students with little to no prior programming or robotics experience.\footnotemark[3] Basic computer skills are required.\footnotemark[4]
+		
+		A class size of approximately 12 students is appropriate and manageable. Groups of two tend to work best, although particularly motivated and experienced students are quite capable of working individually just as well. Groups of three or more suffer from inevitable ``idle hands'', leading to distraction or possible conflict.
+		
+		\footnotetext[1]{\url{https://scratch.mit.edu/}}
+		
+		\footnotetext[2]{\url{http://www.finchrobot.com/}}
+		
+		\footnotetext[3]{The 2017 cohort exhibited a rather wide spectrum of prior programming experience, ranging from absolutely none to a fair amount with Scratch and even some non-visual languages.}
+		
+		\footnotetext[4]{These days, this age group is reliably proficient in computer use. ``For the times they are a-changin'\thinspace''-- Bob Dylan.}
+		
+		\newpage
+		
+	\subsection{Required Materials and Equipment}
+	
+		The following items will be needed for this class:
+		
+		\todo{Clean up list formatting}
+		
+		\begin{description}
+			\item[Classroom Projection System] Needed to present daily slides and guided lessons.
+			
+			\item[Finch Robot Kits] 1 per group. One or two extra kits should be available as backups. Kits include a Finch robot and a relatively long USB A-B (2.0) cable.
+			
+			\item[Laptops] 1 per group. One or two extra laptops should be available as backups. Scratch \& Finch software already installed.
+			
+			\item[Robot Maze] To be assembled on Tuesday before class (see schedule below).
+			
+			\item[Flashlights] At least 1 per group. A few extra flashlights would be good, in case some break or groups require multiple for their project.
+			
+			\item[Construction Paper] At least 20 sheets. Students will use these to describe and diagram their proposed final projects on Thursday.
+			
+			\item[Colored Markers] At least 20 assorted colors. Same as above.
+		\end{description}
+	
+	\newpage
+	
+	\subsection{Schedule}
+	
+		% Please add the following required packages to your document preamble:
+		% \usepackage{graphicx}
+		\begin{table}[ht!]
+			\tiny
+			\centering
+			% \caption{Class Schedule}
+			\label{table:class-schedule}
+			\resizebox{\textwidth}{!}{
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline
+					\textbf{Time} & \textbf{\begin{tabular}[c]{@{}c@{}}Day 1\\ (Monday)\end{tabular}}                        & \textbf{\begin{tabular}[c]{@{}c@{}}Day 2\\ (Tuesday)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Day 3\\ (Wednesday)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Day 4\\ (Thursday)\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Day 5\\ (Friday)\end{tabular}} \\ \hline
+					09:00         & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Introductions\\ Classroom Rules\end{tabular}} &                                                                    &                                                                      &                                                                     &                                                                   \\
+					&                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\ \cline{2-2}
+					09:30         & \multirow{4}{*}{Intro to Robotics}                                                       &                                                                    &                                                                      &                                                                     &                                                                   \\
+					&                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\
+					10:00         &                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\
+					&                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\ \cline{2-5}
+					10:30         & \begin{tabular}[c]{@{}c@{}}Bathroom \& \\ Snack Break\end{tabular}                       & \begin{tabular}[c]{@{}c@{}}Bathroom \& \\ Snack Break\end{tabular} & \begin{tabular}[c]{@{}c@{}}Bathroom \& \\ Snack Break\end{tabular}   & \begin{tabular}[c]{@{}c@{}}Bathroom \& \\ Snack Break\end{tabular}  &                                                                   \\ \cline{2-5}
+					&                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\
+					11:00         &                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\
+					&                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\
+					11:30         &                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\
+					&                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\
+					12:00         &                                                                                          &                                                                    &                                                                      &                                                                     &                                                                   \\ \hline
+				\end{tabular}%
+			}
+		\end{table}
+
+	\section{Presentation Slides}
+	
+		Daily instruction and announcements are 
+
+	\newpage
+	
+	\section{Instruction Guide}
+	
+	This section provides a detailed temporal outline and description of the course curriculum. The timing described here is based on the author's singular experience instructing this course in the summer of 2017, and as such is hardly statistically significant. Additional observations and comments from the author are provided in \emph{Section \ref{sec:author-comments}: }. 
+	
+	\subsection{Daily Prep}
+	
+		To make the best use of class time and minimize frustration of students and instructor alike, it is best to set up the laptops and robot hardware each day before the students arrive in the morning. In particular:
+		
+		\begin{itemize}
+			\item Boot up laptops and log in.
+			
+			\item Connect Finch robots to laptops.
+			
+			\item Launch \emph{BirdBrain Robot Server} and await successful pairing with Finch.\footnote[1]{This process is not always reliable, and may require a few attempts sometimes. Upon successful pairing, the \emph{BirdBrain Server} applet will show that a Finch is connected}
+			
+			\item Open Scratch \textcolor{red}{through the \emph{BirdBrain Server} window}. This loads the appropriate Finch-specific blocks into Scratch.
+			
+			\item Keep the laptops open and logged in, to avoid disconnecting the Finch and having to repeat this process again during class.
+			
+			\item Connect instructor's laptop to room's projection system, queue up the day's presentation slides.
+		\end{itemize}
+	
+		Any additional prep directions specific to a given day are noted in the schedule below.
+	
+	\newpage
+	
+	\subsection{Day 1 (Monday): \textit{Introduction to Robotics / Finch Basics}}
+	
+		\begin{timetable}
+			\item[08:00 -- 09:00] \textbf{Prep} -- Queue up ``Day 1 Slides'' presentation (see \hyperref[sec:apdx-slides]{Appendix \ref*{sec:apdx-slides}: Presentation Slides}). Arrange seats in quasi-rows facing the projector screen.
+			
+			\item[09:00 -- 09:10] \textbf{Students arrive} -- Greetings; have them sit down in the seats; ask not to touch computers and robots yet.
+			
+			\item[09:10 -- 09:15] \textbf{Instructor and TA introductions} -- (Slides 3,4 of ??) Who, what, where, why?
+			
+			\item[09:15 -- 09:30] \textbf{Student introductions} -- (Slide 5) The usual ice breaker: names, age, prior programming / robotics exposure (just for reference, emphasize that no prior experience is needed), favorite animal, etc.
+			
+			\item[09:30 -- 10:30] \textbf{Intro to Robotics presentation} -- (see ???) nothing technical, just a bit of terminology and discussion to get the students thinking about robots. A selection of particularly interesting and insightful robot videos on YouTube (see ???)\todo{create a playlist?} closes out the session.
+			
+			\item[10:30 -- 10:45] \textbf{Bathroom / Snack Break}
+			
+			\item[10:45 -- 11:15] \textbf{Guided Intro to Scratch \& Finch} -- \todo{add grouping students up} see \todo{reference second slide set}
+			
+			\item[11:15 -- 11:50] \textbf{Exploring Scratch \& Finch Basics} -- student groups continue to work \todo{finish this thought}
+			
+			\item[11:50 -- 12:00] \textbf{Clean-up} -- ask students to return to their stations, save their work, shut down their computers, and pick up and trash around their area. Finches and their USB cables should be returned to their boxes. Make sure students have their backpacks / water bottles / articles of clothing / etc.
+			
+			\item[12:00 -- 12:10] \textbf{Students leave} -- TA escorts students out, FITT students picked up by camp counselors.
+			
+		\end{timetable}
+	
+	\newpage
+	%\noindent\hrulefill
+	
+	\subsection{Day 2 (Tuesday): \textit{Sensing with the Finch}}
+	
+		\begin{timetable}
+			
+			\item[08:00 -- 09:00] \textbf{Prep} -- Assemble the robot maze... be creative with the layout. The larger the better, so long as the floorspace allows.
+			
+			\item[09:00 -- 09:10] \textbf{Students arrive}
+			
+			\item[09:10 -- 09:15] \textbf{???} -- \todo{maze rules, what to do today, etc.}
+			
+			\item[10:30 -- 10:45] \textbf{Bathroom / Snack Break}
+			
+			\item[11:50 -- 12:00] \textbf{Clean-up} -- ask students to return to their stations, save their work, shut down their computers, and pick up and trash around their area. Finches and their USB cables should be returned to their boxes. Make sure students have their backpacks / water bottles / articles of clothing / etc.
+			
+			\item[12:00 -- 12:10] \textbf{Students leave} -- TA escorts students out, FITT students picked up by camp counselors.
+			
+		\end{timetable}
+	
+	\newpage
+	%\noindent\hrulefill
+	
+	\subsection{Day 3 (Wednesday): \textit{Robot Autonomy}}
+	
+		\begin{timetable}
+			\item[09:00 -- 09:10] \textbf{Students arrive}
+			
+			\item[10:30 -- 10:45] \textbf{Bathroom / Snack Break}
+			
+			\item[11:45 -- 12:00] \textbf{Clean-up} -- ask students to return to their stations, save their work, shut down their computers, and pick up and trash around their area. Finches and their USB cables should be returned to their boxes. Make sure students have their backpacks / water bottles / articles of clothing / etc.
+			
+			\item[12:00 -- 12:10] \textbf{Students leave} -- TA escorts students out, FITT students picked up by camp counselors.
+			
+		\end{timetable}
+	
+	\newpage
+	%\noindent\hrulefill
+	
+	\subsection{Day 4 (Thursday): \textit{Final Projects / Robotics Institute Tour}}
+	
+		\begin{timetable}
+			\item[09:00 -- 09:10] \textbf{Students arrive}
+			
+			\item[09:10 -- 10:00] \textbf{Continue Work on Autonomy Project}
+			
+			\todo{or just announce final project right away and have them work on that?}
+			
+			\item[10:00 -- 10:05] \textbf{Final Project Announcement} \todo{link to Thursday slide}
+			
+			\item[10:05 -- 10:15] \textbf{Final Project Proposals} \todo{describe}
+			
+			\item[10:15 -- 10:30] \textbf{Bathroom / Snack Break} -- students may continue to work on their final project proposals during this time.
+			
+			\item[10:30 -- 11:50] \textbf{Tour of the RI} -- \todo{need details}
+			
+			\item[11:50 -- 12:00] \textbf{Clean-up} -- ask students to return to their stations, save their work, shut down their computers, and pick up and trash around their area. Finches and their USB cables should be returned to their boxes. Make sure students have their backpacks / water bottles / articles of clothing / etc.
+			
+			\item[12:00 -- 12:10] \textbf{Students leave} -- TA escorts students out, FITT students picked up by camp counselors.
+			
+		\end{timetable}
+	
+	\newpage
+	%\noindent\hrulefill
+	
+	\subsection{Day 5 (Friday): \textit{Final Projects (cont.) / Parents Visit}}
+	
+		\begin{timetable}
+			
+			\item[10:30 -- 10:45] \textbf{Bathroom / Snack Break}
+			
+			\item[11:20 -- 11:25] \textbf{Parents arrive}
+			
+			\item[11:25 -- 11:30] \textbf{Quick summary of course for parents}
+			
+			\item[11:30 -- 11:55] \textbf{Student final project presentations} -- \todo{describe}
+			
+			\item[11:55 -- 12:05] \textbf{``Continuing Robotics at Home''} -- \todo{slide 9 of friday presentation}
+			
+			\item[12:05 -- 12:15] \textbf{Parents \& students leave} -- some parents will likely come up to quickly say thanks or ask questions.
+			
+			\item[12:15 - 12:45] \textbf{Clean up the classroom} -- Depends on the exact circumstances, but mainly this involves packaging up the Finch robots and storing them, shutting down and collecting the laptops, and breaking down the robot maze for storage.
+		\end{timetable}
+	
+	%\noindent\hrulefill
+	
+	\newpage
+	
+	\section{Observations and Comments from Finch 2017}\label{sec:author-comments}
+	
+	\newpage
+	\begin{appendices}
+		\section{Presentation Slides}\label{sec:apdx-slides}
+		
+		\begin{description}
+			\item[Day 1 Slides\label{res:day1-slides}] Covers introductions, class ground rules, curriculum schedule, and overview of robotics.
+			
+			\item[Day 5 Slides\label{res:day5-slides}] \todo{describe it}
+		\end{description} 
+		
+		\section{Bibliography and Useful Resources}
+		
+	\end{appendices}
+
+\end{document}
