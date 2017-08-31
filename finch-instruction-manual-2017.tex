@@ -13,6 +13,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{hyperref}
+\usepackage{array}
+\usepackage{tabularx}
 \usepackage{multirow}
 \usepackage[titletoc,title]{appendix}
 
@@ -54,7 +56,7 @@
 \author{\textbf{Alexander Volkov Jr.}}
 \date{Published Summer 2017}
 
-\renewcommand{\arraystretch}{1.5}
+% \renewcommand{\arraystretch}{1.5}
 
 \begin{document}
 	
@@ -136,9 +138,43 @@
 	\newpage
 	
 	\subsection{Schedule}
-	
-		% Please add the following required packages to your document preamble:
-		% \usepackage{graphicx}
+		
+		\begin{table}[ht!]
+			\footnotesize
+			\centering
+			\def\mystrut(#1,#2){\vrule height #1 depth #2 width 0pt}
+			\newcolumntype{@}{>{\global\let\currentrowstyle\relax}}
+			\newcolumntype{^}{>{\currentrowstyle}}
+			\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+				#1\ignorespaces
+			}
+			\newcolumntype{C}[1]{%
+				>{\mystrut(3.5ex,2ex)\centering}%
+				p{#1}%
+				<{}}
+			\begin{tabular}{|>{\bfseries}@C{1cm}*{5}{|^C{2cm}}|}
+				\hline
+				\rowstyle{\bfseries}
+						& Monday	& Tuesday	& Wednesday	& Thursday	& Friday \tabularnewline \hline
+				09:00	& 			& c 		& foo 		& bar		& zed \tabularnewline
+						&			&			&			&			& \tabularnewline
+				09:30	&			&			&			&			& \tabularnewline
+						&			&			&			&			& \tabularnewline
+				10:00	&			&			&			&			& \tabularnewline
+						&			&			&			&			& \tabularnewline
+				10:30	&			&			&			&			& \tabularnewline
+						&			&			&			&			& \tabularnewline
+				11:30	&			&			&			&			& \tabularnewline
+						&			&			&			&			& \tabularnewline
+				12:00	&			&			&			&			& \tabularnewline
+						&			&			&			&			& \tabularnewline
+				\hline
+			\end{tabular}
+		
+		
+		\end{table}
+
+
 		\begin{table}[ht!]
 			\footnotesize
 			\centering
@@ -190,7 +226,8 @@
 			
 			\item Keep the laptops open and logged in, to avoid disconnecting the Finch and having to repeat this process again during class.
 			
-			\item Connect instructor's laptop to room's projection system, queue up the day's presentation slides.
+			\item Connect instructor's laptop to room's projection system, queue up the day's presentation slides (see \hyperref[sec:apdx-slides]{Appendix \ref*{sec:apdx-slides}: Presentation Slides}).
+			
 		\end{itemize}
 		\vspace{1em}
 		Any additional prep directions specific to a given day are noted in the schedule below.
@@ -200,7 +237,7 @@
 	\subsection{Day 1 (Monday): \textit{Introduction to Robotics / Finch Basics}}
 	
 		\begin{timetable}
-			\item[08:00 -- 09:00] \textbf{Prep} -- Queue up ``Day 1 Slides'' presentation (see \hyperref[sec:apdx-slides]{Appendix \ref*{sec:apdx-slides}: Presentation Slides}). Arrange seats in quasi-rows facing the projector screen.
+			\item[08:00 -- 09:00] \textbf{Prep} -- Arrange seats in quasi-rows facing the projector screen.
 			
 			\item[09:00 -- 09:10] \textbf{Students arrive} -- Greetings; have them sit down in the seats; ask not to touch computers and robots yet.
 			
@@ -231,11 +268,11 @@
 	
 		\begin{timetable}
 			
-			\item[08:00 -- 09:00] \textbf{Prep} -- Assemble the robot maze... be creative with the layout. The larger the better, so long as the floorspace allows.
+			\item[08:00 -- 09:00] \textbf{Prep} -- Assemble the robot maze... be creative with the layout. The larger the better, to the extent that the floorspace allows.
 			
-			\item[09:00 -- 09:10] \textbf{Students arrive}
+			\item[09:00 -- 09:10] \textbf{Students arrive} Have students sit at their stations, but no laptop / robot use yet.
 			
-			\item[09:10 -- 09:15] \textbf{???} -- \todo{maze rules, what to do today, etc.}
+			\item[09:10 -- 09:15] \textbf{Maze Rules / Sensing Tutorial}
 			
 			\item[10:30 -- 10:45] \textbf{Bathroom / Snack Break}
 			
@@ -325,7 +362,7 @@
 			\item[Day 5 Slides\label{res:day5-slides}] \todo{describe it}
 		\end{description} 
 		
-		\section{Bibliography and Useful Resources}
+		\section{References and Useful Resources}
 		
 	\end{appendices}
 
