@@ -17,6 +17,10 @@
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage[titletoc,title]{appendix}
+%\usepackage[citetracker=true,backend=biber,style=numeric,citestyle=authoryear-comp,maxcitenames=2]{biblatex}
+\usepackage[backend=biber]{biblatex}
+
+\bibliography{finch-curriculum-2017}
 
 \geometry{a4paper,left=1.25in,right=1.25in,top=1.5in,bottom=1.25in}
 
@@ -152,11 +156,11 @@
 				>{\mystrut(3.5ex,2ex)\centering}%
 				p{#1}%
 				<{}}
-			\begin{tabular}{|>{\bfseries}@C{1cm}*{5}{|^C{2cm}}|}
+			\begin{tabular}{|>{\bfseries}@C{0.75cm}*{6}{|^C{2.2cm}}|}
 				\hline
 				\rowstyle{\bfseries}
 						& Monday	& Tuesday	& Wednesday	& Thursday	& Friday \tabularnewline \hline
-				09:00	& 			& c 		& foo 		& bar		& zed \tabularnewline
+				09:00	& Introduction\\Classroom Rules		& c 		& foo 		& bar		& zed \tabularnewline
 						&			&			&			&			& \tabularnewline
 				09:30	&			&			&			&			& \tabularnewline
 						&			&			&			&			& \tabularnewline
@@ -165,7 +169,7 @@
 				10:30	&			&			&			&			& \tabularnewline
 						&			&			&			&			& \tabularnewline
 				11:30	&			&			&			&			& \tabularnewline
-						&			&			&			&			& \tabularnewline
+						&			&			&			&			& \tabularnewline	
 				12:00	&			&			&			&			& \tabularnewline
 						&			&			&			&			& \tabularnewline
 				\hline
@@ -360,9 +364,13 @@
 			\item[Day 1 Slides\label{res:day1-slides}] Covers introductions, class ground rules, curriculum schedule, and overview of robotics.
 			
 			\item[Day 5 Slides\label{res:day5-slides}] \todo{describe it}
-		\end{description} 
+		\end{description}
 		
-		\section{References and Useful Resources}
+		\nocite{*}
+		
+		\printbibheading[title={References and Useful Resources},heading=bibnumbered]
+		
+		\printbibliography[heading=none]
 		
 	\end{appendices}
 
